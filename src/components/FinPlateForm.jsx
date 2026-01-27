@@ -1,4 +1,4 @@
-import { runFinPlateChecks } from "@/calculations/finPlateChecks";
+import { runFinPlateChecks1Col } from "@/calculations/finPlateChecks1Col";
 
 export default function FinPlateForm({ inputs, setInputs, setResults }) {
   function handleChange(e) {
@@ -9,7 +9,7 @@ export default function FinPlateForm({ inputs, setInputs, setResults }) {
   }
 
   function handleSubmit() {
-    const results = runFinPlateChecks(inputs);
+    const results = runFinPlateChecks1Col(inputs);
     setResults(results);
   }
 
