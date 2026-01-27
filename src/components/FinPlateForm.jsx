@@ -1,3 +1,5 @@
+import { runFinPlateChecks } from "@/calculations/finPlateChecks";
+
 export default function FinPlateForm({ inputs, setInputs, setResults }) {
   function handleChange(e) {
     setInputs({
@@ -13,11 +15,20 @@ export default function FinPlateForm({ inputs, setInputs, setResults }) {
 
   return (
     <>
+      <div className="form-row">
+      <label>Shear Force:</label>
       <input name="shear" onChange={handleChange} />
-      <br />
-      <input name="boltDiameter" onChange={handleChange} />
-      <br />
-      <button onClick={handleSubmit}>Calculate</button>
+      <span>kN</span>
+      </div>
+
+      <div className="form-row">
+        <label>Bolt Diameter:</label>
+        <input name="boltDiameter" onChange={handleChange} />
+        <span>mm</span>
+      </div>
+
+      <button className="buttons" onClick={handleSubmit}>Calculate</button>
+
     </>
   );
 }
