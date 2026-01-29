@@ -4,7 +4,7 @@
 export function runFinPlateChecks1Col(inputs) {
     // For now, just return fixed values
     boltShearResistance(30, 2, 60, 94.1);
-    boltBearingWeb(30, 22, 0, 30, 1, 60, 50, 800, 470, 20, 6);
+    //boltBearingWeb(30, 22, 0, 30, 1, 60, 50, 800, 470, 20, 6);
     return {
       boltShearUtilisation: 0.75, // dummy utilisation
       passes: true                 // dummy pass/fail
@@ -12,7 +12,7 @@ export function runFinPlateChecks1Col(inputs) {
   }
 
 
-function boltShearResistance(z, n1, p1,fvrd){
+export function boltShearResistance(z, n1, p1,fvrd){
     //Required inputs
     //n1 = rows of bolts
     //n2 = columns of bolts
@@ -25,9 +25,11 @@ function boltShearResistance(z, n1, p1,fvrd){
     let beta = 6*z / (n1*(n1+1)*p1)
 
     let Vrd = n1*fvrd / Math.sqrt(Math.pow((1+a*n1),2)+Math.pow((beta*n1), 2))
+    console.log(Vrd);
+    return Vrd;
   }
 
-function boltBearingWeb(e2b, d0, p2, z, n1, p1, e1b, fub, fub1, d, twb1){
+function boltBearingWebVert(e2b, d0, p2, z, n1, p1, e1b, fub, fub1, d, twb1){
   //e1,b = distance from first bolt to top of beam
   //he = distance from last bolt to bottom of beam
   //gh = gap between sections
@@ -50,7 +52,15 @@ function boltBearingWeb(e2b, d0, p2, z, n1, p1, e1b, fub, fub1, d, twb1){
   let abver = Math.min((e1b/(3*d0)), ((p1/(3*d0))-(1/4)), (fub/fub1), 1.0);
   let fbrdVert = ((k1ver*abver*fub1*d*twb1)/gammaM2)/1000;
 
-  console.log(fbrdVert)
-  
+  return fbrdVert;
+}
+
+function boltBearingWebHorz(){
+  //to be added later
+}
+
+export function testfunction(){
+  let a = 1;
+  return a;
 }
   
