@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import FinPlateForm from '../components/FinPlateForm';
 import Results from '../components/Results';
+import styles from './globals.css'
 
 export default function HomePage() {
   const [inputs, setInputs] = useState({});
@@ -10,7 +11,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <h1>Fin Plate Connection Check</h1>
+      <h1 className='gradient-text'>Fin Plate Connection Check</h1>
 
       <FinPlateForm
         inputs={inputs}
